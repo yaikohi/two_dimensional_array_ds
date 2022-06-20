@@ -4,17 +4,15 @@ fn check_for_max(mut sums: Vec<i32>, input: Array<i32, Dim<[usize; 2]>>) -> i32 
     for x in 0..4 {
         for y in 0..4 {
             let mut sum = 0;
-
-            sum += input[[y, x]];
-            sum += input[[y, x + 1]];
-            sum += input[[y, x + 2]];
-
-            sum += input[[y + 1, x + 1]];
-
-            sum += input[[y + 2, x]];
-            sum += input[[y + 2, x + 1]];
-            sum += input[[y + 2, x + 2]];
-
+            for i in 0..3 {
+                for j in 0..3 {
+                    if j == 1 && (i == 0 || i == 2) {
+                        sum += 0;
+                    } else {
+                        sum += input[[y + j, x + i]];
+                    }
+                }
+            }
             sums.push(sum);
         }
     }
