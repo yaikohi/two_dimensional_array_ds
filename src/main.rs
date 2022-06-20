@@ -20,9 +20,6 @@ fn check_for_max(mut sums: Vec<i32>, input: Array<i32, Dim<[usize; 2]>>) -> i32 
     }
 
     let max_value = sums.iter().max().unwrap();
-
-    println!("max value: {:?}", max_value);
-
     *max_value
 }
 fn main() {
@@ -44,6 +41,12 @@ fn main() {
         [0, 0, -1, -2, -4, 0],
     ]);
 
-    check_for_max([].to_vec(), a);
-    check_for_max([].to_vec(), b);
+    println!(
+        "max value of input 1: \n{:?}\n",
+        check_for_max([].to_vec(), a)
+    );
+    println!(
+        "max value of input 2: \n{:?}",
+        check_for_max([].to_vec(), b)
+    );
 }
